@@ -48,7 +48,7 @@ The project consists of the following components:
      ```json
      {
          "Query": "SQL Query",
-         "QueryType": "Select" // or "Insert"
+         "QueryType": 0 // 0 for SELECT 1 for INSERT
      }
      ```
    - Response: JSON array containing query results or a success/error message.
