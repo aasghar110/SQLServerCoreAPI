@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "645Yz+2ln2cYPmAh/tI0Mo1mVJ8XesYpyclGkA8WQPk=",
+  "Source": "SQLServerCoreAPI",
+  "BasePath": "_content/SQLServerCoreAPI",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
