@@ -1,41 +1,73 @@
-# SQLServerCoreAPI
+# ASP.NET Core Web API Project
 
-SQL Server Toolkit for .NET Core
+This project is an ASP.NET Core Web API application that provides endpoints for interacting with a database. It includes functionality for retrieving data, inserting data, and executing SQL queries.
 
-This toolkit provides a set of APIs for easy integration of SQL Server databases with .NET Core applications. Whether you need to retrieve data, execute stored procedures, or perform select and insert queries, this toolkit simplifies database interactions and enhances performance.
+## Project Structure
 
-## Features
+The project consists of the following components:
 
-- **Retrieve Data**: Fetch data from SQL Server databases effortlessly.
-- **Execute Stored Procedures**: Seamlessly execute stored procedures for complex operations.
-- **Query Handling**: Execute select and insert queries with ease.
-- **Efficient Performance**: Streamline database tasks to improve overall application performance.
-- **Simple Integration**: User-friendly APIs for quick integration into .NET Core projects.
+- **Controllers**: Contains API controllers that define the endpoints for various operations.
+- **Models**: Contains classes representing request models for different API operations.
+- **appsettings.json**: Configuration file for database connection strings.
 
-## Usage
+## APIs
 
-1. Clone the repository to your local machine.
-2. Install the necessary dependencies using NuGet Package Manager.
-3. Configure the connection string in the `appsettings.json` file.
-4. Start using the APIs in your .NET Core application for smooth database interactions.
+1. **GetData API**: Endpoint for executing stored procedures and retrieving data.
 
-## API Endpoints
+   - Endpoint: `/API/GetData`
+   - HTTP Method: `POST`
+   - Request Body:
+     ```json
+     {
+         "SPName": "NameOfStoredProcedure",
+         "Parameters": ["Param1", "Param2"],
+         "Values": ["Value1", "Value2"]
+     }
+     ```
+   - Response: JSON array containing retrieved data.
 
-- `/API/GetData`: Retrieve data from the database.
-- `/API/InsertData`: Insert data into the database.
-- `/API/ExecuteQuery`: Execute select and insert queries.
+2. **InsertData API**: Endpoint for inserting data into the database using stored procedures.
 
-## Example
+   - Endpoint: `/API/InsertData`
+   - HTTP Method: `POST`
+   - Request Body:
+     ```json
+     {
+         "SPName": "NameOfStoredProcedure",
+         "Parameters": ["Param1", "Param2"],
+         "Values": ["Value1", "Value2"]
+     }
+     ```
+   - Response: JSON object indicating success or failure.
 
-```csharp
-// Retrieve data example
-// Make a POST request to /API/GetData with JSON body containing stored procedure name, parameters, and values.
+3. **ExecuteQuery API**: Endpoint for executing SQL queries on the database.
 
-// Insert data example
-// Make a POST request to /API/InsertData with JSON body containing stored procedure name, parameters, and values.
+   - Endpoint: `/API/ExecuteQuery`
+   - HTTP Method: `POST`
+   - Request Body:
+     ```json
+     {
+         "Query": "SQL Query",
+         "QueryType": "Select" // or "Insert"
+     }
+     ```
+   - Response: JSON array containing query results or a success/error message.
 
-// Execute query example
-// Make a POST request to /API/ExecuteQuery with JSON body containing the SQL query and query type.
+## Configuration
 
-Developed by Ali Asghar with ❤️
+Database connection strings are stored in the `appsettings.json` file. Ensure to configure these connection strings appropriately before running the application.
 
+## Dependencies
+
+- **Microsoft.AspNetCore.Mvc**: Provides MVC framework for building APIs.
+- **Microsoft.Extensions.Configuration**: Provides configuration capabilities.
+- **System.Data.SqlClient**: SQL Server data provider for database interactions.
+
+## Running the Application
+
+1. Clone the repository.
+2. Configure database connection strings in `appsettings.json`.
+3. Build and run the application.
+4. Access APIs using appropriate endpoints and request payloads.
+
+Developed with ❤️ by Ali Asghar
